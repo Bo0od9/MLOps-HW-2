@@ -1,0 +1,16 @@
+paths:
+  input_dir: "./input"
+  output_dir: "./output"
+  artifacts_dir: "./artifacts"
+  models_dir: "./models"
+
+data:
+  target_col: "prediction"
+  id_col: "index"
+  output_file_name: "sample_submission.csv"
+  cat_cols: ["merch", "cat_id", "name_1", "name_2", "gender", "one_city", "us_state", "jobs"]
+  text_cols: ["street"]
+  num_cols: ["amount", "post_code", "population_city", "hour", "dayofweek", "distance_km"]
+
+inference:
+  threshold: 0.5
