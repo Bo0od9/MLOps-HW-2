@@ -1,5 +1,6 @@
 import json
 import os
+import time
 import uuid
 
 import pandas as pd
@@ -60,6 +61,7 @@ def send_to_kafka(df, topic, bootstrap_servers):
                 topic, value={"transaction_id": row["transaction_id"], "data": row.drop("transaction_id").to_dict()}
             )
             progress_bar.progress((idx + 1) / total_rows)
+            time.sleep(0.01)
 
         producer.flush()
 
